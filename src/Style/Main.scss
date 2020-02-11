@@ -1,21 +1,59 @@
 @import "partials/variables";
 @import "partials/mixin";
 body {
+  text-align: center;
   color: $text-color;
   margin: 0;
-  font-family: "Rokkitt", serif;
+  font-family: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  & h1 {
+    font-size: $mobile-h1;
+    margin: 0;
+  }
+  & h2 {
+    font-size: $mobile-h2;
+    margin: 0;
+    font-weight: normal;
+  }
 }
 
+//button
+.Button {
+  cursor: pointer;
+  font-family: $font;
+  background-color: $third-color;
+  font-size: $mobile-regular;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  padding: 3%;
+  margin-top: 7%;
+  margin-bottom: 7%;
+  transition: 400ms;
+  @include shadow;
+  &:hover {
+    @include hover-shadow;
+    transform: scale(1.01);
+  }
+  &:active {
+    transform: scale(0.95);
+    @include shadow;
+  }
+}
+
+// navbar
 .Nav {
+  background-color: white;
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   @include shadow;
+  z-index: 1000;
 
   & a {
     @include links;
@@ -39,5 +77,64 @@ body {
     &.active {
       color: $text-color;
     }
+  }
+}
+
+//main page
+.Main {
+  padding: 5%;
+  height: 90vh;
+
+  .Title {
+    text-align: left;
+    margin-top: 20%;
+
+    @include animation("slide 700ms ease-in-out forwards");
+    @include keyframes(slide) {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+  .Background {
+    @include background;
+  }
+  .Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card1,
+  .card2,
+  .card3,
+  .card4 {
+    @include animated-card;
+  }
+  .card1 {
+    @include card1;
+  }
+  .card2 {
+    @include card2;
+  }
+  .card3 {
+    @include card3;
+  }
+  .card4 {
+    @include card4;
+  }
+}
+
+//about me page
+.About {
+  padding: 5%;
+  background-color: $theme-color;
+  color: $contrast-color;
+  & p {
+    text-align: left;
   }
 }

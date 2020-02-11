@@ -1,10 +1,108 @@
+@import "variables";
+
 @mixin links {
   text-decoration: none;
   font-weight: bold;
 }
 
+@mixin background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 50%;
+  z-index: -10;
+  background: $second-color;
+}
 @mixin shadow {
-  -webkit-box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.289);
-  -moz-box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.289);
-  box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.289);
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+@mixin hover-shadow {
+  -webkit-box-shadow: $hover-shadow;
+  -moz-box-shadow: $hover-shadow;
+  box-shadow: $hover-shadow;
+}
+
+@mixin animated-card {
+  position: absolute;
+  top: 45%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+// Colors
+$bg-color: $third-color;
+$dot-color: $second-color;
+
+// Dimensions
+$dot-size: 2px;
+$dot-space: 10px;
+@mixin card1 {
+  z-index: 50;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(
+        90deg,
+        $bg-color ($dot-space - $dot-size),
+        transparent 1%
+      )
+      center,
+    linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
+    $dot-color;
+  background-size: $dot-space $dot-space;
+}
+
+@mixin card4 {
+  z-index: 150;
+  margin-top: 5%;
+  width: 200px;
+  height: 200px;
+  background-image: url("../Assets/logo.svg");
+}
+
+@mixin card2 {
+  z-index: 50;
+  margin-top: 450px;
+  margin-left: -130px;
+  width: 200px;
+  height: 100px;
+  background-image: url("../Assets/Stroke.svg");
+}
+
+@mixin card3 {
+  margin-top: 460px;
+  margin-left: 150px;
+  width: 200px;
+  height: 100px;
+  z-index: 5;
+  background-image: url("../Assets/Stroke.svg");
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
 }

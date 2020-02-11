@@ -1,0 +1,43 @@
+@import "partials/variables";
+@import "partials/mixin";
+body {
+  color: $text-color;
+  margin: 0;
+  font-family: "Rokkitt", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  @include shadow;
+
+  & a {
+    @include links;
+    color: rgba(0, 0, 0, 0.625);
+    display: inline-block;
+    margin-bottom: 10px;
+
+    &:after {
+      content: "";
+      display: block;
+      margin: -10px;
+      width: 0;
+      height: 10px;
+      background: $theme-color;
+      transition: width 0.3s;
+    }
+
+    &:hover:after {
+      width: 70%;
+    }
+    &.active {
+      color: $text-color;
+    }
+  }
+}

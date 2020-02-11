@@ -1,8 +1,9 @@
 import React from "react";
+import "../../../Style/Main.css";
 import { NavLink } from "react-router-dom";
 export default function Nav() {
   return (
-    <nav>
+    <nav className="Nav">
       <NavLink exact to="/">
         HOME
       </NavLink>

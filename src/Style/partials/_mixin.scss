@@ -1,0 +1,10 @@
+@mixin links {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@mixin shadow {
+  -webkit-box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.289);
+  -moz-box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.289);
+  box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.289);
+}

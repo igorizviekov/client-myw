@@ -21,7 +21,7 @@ body h2 {
 .Button {
   cursor: pointer;
   font-family: "Rokkitt", serif;
-  background-color: #ededed;
+  background-color: #f7f7f7;
   font-size: 20pt;
   font-weight: bold;
   border: none;
@@ -69,7 +69,7 @@ body h2 {
 .Nav a {
   text-decoration: none;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.625);
+  color: black;
   display: inline-block;
   margin-bottom: 10px;
 }
@@ -90,7 +90,7 @@ body h2 {
 }
 
 .Nav a.active {
-  color: black;
+  color: #480eb5;
 }
 
 .Scroll {
@@ -101,7 +101,7 @@ body h2 {
   height: 60px;
   outline: none;
   border: none;
-  background-color: #ededed;
+  background-color: #f7f7f7;
   -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
 }
@@ -150,34 +150,6 @@ body h2 {
 .Main .Title {
   text-align: left;
   margin-top: 20%;
-  -webkit-animation: slide 700ms ease-in-out forwards;
-  animation: slide 700ms ease-in-out forwards;
-}
-
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
 }
 
 .Main .Background {
@@ -217,7 +189,7 @@ body h2 {
   z-index: 50;
   width: 200px;
   height: 200px;
-  background: linear-gradient(90deg, #ededed 8px, transparent 1%) center, linear-gradient(#ededed 8px, transparent 1%) center, #babbbf;
+  background: linear-gradient(90deg, #f7f7f7 8px, transparent 1%) center, linear-gradient(#f7f7f7 8px, transparent 1%) center, #babbbf;
   background-size: 10px 10px;
   -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
@@ -260,8 +232,9 @@ body h2 {
 }
 
 .Skills {
-  background-color: #ededed;
+  background-color: #f7f7f7;
   padding-top: 5%;
+  padding-bottom: 5%;
   margin-bottom: 10%;
 }
 

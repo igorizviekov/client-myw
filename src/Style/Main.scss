@@ -58,7 +58,7 @@ body {
 
   & a {
     @include links;
-    color: rgba(0, 0, 0, 0.625);
+    color: $text-color;
     display: inline-block;
     margin-bottom: 10px;
 
@@ -76,7 +76,7 @@ body {
       width: 70%;
     }
     &.active {
-      color: $text-color;
+      color: $theme-color;
     }
   }
 }
@@ -127,17 +127,19 @@ body {
     text-align: left;
     margin-top: 20%;
 
-    @include animation("slide 700ms ease-in-out forwards");
-    @include keyframes(slide) {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
+    // h1 {
+    //   @include animation("slide 700ms ease-in-out forwards");
+    // }
+    // @include keyframes(slide) {
+    //   0% {
+    //     opacity: 0;
+    //     transform: translateY(20px);
+    //   }
+    //   100% {
+    //     opacity: 1;
+    //     transform: translateX(0);
+    //   }
+    // }
   }
   .Background {
     @include background;
@@ -180,7 +182,7 @@ body {
 .Skills {
   background-color: $third-color;
   padding-top: 5%;
-
+  padding-bottom: 5%;
   margin-bottom: 10%;
   .Grid {
     margin-top: 5%;

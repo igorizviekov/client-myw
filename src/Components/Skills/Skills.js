@@ -1,12 +1,16 @@
 import React, { Fragment } from "react";
 import { ReactComponent as Pen } from "../../Assets/Pen.svg";
 import { ReactComponent as Code } from "../../Assets/Code.svg";
+import Animation from "../UI/AnimationTracking";
 export default function Skills() {
   return (
     <Fragment>
       <br />
       <br />
-      <h1>What do I use?</h1>
+      <Animation>
+        <h1>What do I use?</h1>
+      </Animation>
+
       <br />
       <Pen />
       <br />
@@ -28,7 +32,9 @@ export default function Skills() {
           <p>Router</p>
         </div>
       </div>
-      <h1>What do I do?</h1>
+      <Animation>
+        <h1>What do I do?</h1>
+      </Animation>
       <br />
       <div className="Skills2">
         <h2>Web Design</h2>

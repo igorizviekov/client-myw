@@ -18,6 +18,8 @@ body {
   }
 }
 
+//Shared==================
+
 //button
 .Button {
   cursor: pointer;
@@ -28,7 +30,6 @@ body {
   border: none;
   outline: none;
   padding: 3%;
-  margin-top: 7%;
   margin-bottom: 7%;
   transition: 400ms;
   @include shadow;
@@ -52,7 +53,7 @@ body {
   width: 100%;
   padding-top: 5%;
   padding-bottom: 5%;
-  @include shadow;
+  @include hover-shadow;
   z-index: 1000;
 
   & a {
@@ -80,7 +81,44 @@ body {
   }
 }
 
-//main page
+//Footer
+.Scroll {
+  cursor: pointer;
+  padding: 0;
+  margin: -20px;
+  width: 60px;
+  height: 60px;
+  outline: none;
+  border: none;
+  background-color: $third-color;
+  @include shadow;
+  &:hover {
+    transform: scale(1.02);
+    @include hover-shadow;
+  }
+}
+.Footer {
+  background-color: $theme-color;
+  padding-top: 15%;
+  padding-bottom: 2%;
+  li {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 5%;
+  }
+  p {
+    font-size: smaller;
+    margin: 0;
+    color: $contrast-color;
+  }
+  a:hover {
+    transform: scale(1.1);
+  }
+}
+
+//main page==============
 .Main {
   padding: 5%;
   height: 90vh;
@@ -129,12 +167,34 @@ body {
   }
 }
 
-//about me page
+//about me section
 .About {
-  padding: 5%;
+  padding: $page-padding;
   background-color: $theme-color;
   color: $contrast-color;
   & p {
+    text-align: left;
+  }
+}
+//skills section
+.Skills {
+  background-color: $third-color;
+  padding-top: 5%;
+
+  margin-bottom: 10%;
+  .Grid {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.Skills2 {
+  padding: $page-padding;
+  margin-bottom: 10%;
+  h2 {
+    color: $theme-color;
+  }
+  p {
     text-align: left;
   }
 }

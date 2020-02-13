@@ -41,6 +41,13 @@ body {
     transform: scale(0.95);
     @include shadow;
   }
+
+  &:disabled:hover {
+    color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    @include shadow;
+  }
 }
 
 // navbar
@@ -83,9 +90,12 @@ body {
 
 //Footer
 .Scroll {
+  position: absolute;
+  left: 50%;
   cursor: pointer;
   padding: 0;
-  margin: -20px;
+  margin: -40px;
+  margin-left: -30px;
   width: 60px;
   height: 60px;
   outline: none;
@@ -126,20 +136,6 @@ body {
   .Title {
     text-align: left;
     margin-top: 20%;
-
-    // h1 {
-    //   @include animation("slide 700ms ease-in-out forwards");
-    // }
-    // @include keyframes(slide) {
-    //   0% {
-    //     opacity: 0;
-    //     transform: translateY(20px);
-    //   }
-    //   100% {
-    //     opacity: 1;
-    //     transform: translateX(0);
-    //   }
-    // }
   }
   .Background {
     @include background;
@@ -175,6 +171,7 @@ body {
   background-color: $theme-color;
   color: $contrast-color;
   & p {
+    text-indent: $indent;
     text-align: left;
   }
 }
@@ -197,6 +194,87 @@ body {
     color: $theme-color;
   }
   p {
+    text-indent: $indent;
     text-align: left;
+  }
+}
+
+//Contact page===================
+
+//Title
+.Touch {
+  color: $contrast-color;
+  background-color: $theme-color;
+  padding-top: 20%;
+  margin-bottom: 5%;
+  height: 15%;
+}
+
+//Links
+.Contact {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-bottom: 10%;
+  a {
+    font-size: $mobile-h2;
+    color: $text-color;
+    padding: 2%;
+    text-decoration: none;
+    transition: color 300ms ease-in-out;
+    &:hover {
+      color: $theme-color;
+    }
+  }
+}
+
+//Form
+.Form-section {
+  background-color: $third-color;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+.Input {
+  width: 80%;
+  background-color: $contrast-color;
+  margin: auto;
+  padding: 1% 5%;
+  box-sizing: border-box;
+  @include shadow;
+}
+
+.InputElement {
+  outline: none;
+  border: none;
+  border-bottom: 5px solid $third-color;
+  font: inherit;
+  padding-top: 6%;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  &::placeholder {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  &:focus {
+    border-bottom: 5px solid $second-color;
+    &::placeholder {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  }
+
+  &.Invalid {
+    border-bottom: 5px solid rgb(154, 5, 5);
+  }
+
+  &.TextArea {
+    background-color: $third-color;
+    height: 150px;
+    margin-bottom: 5%;
   }
 }

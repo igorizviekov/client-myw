@@ -24,7 +24,7 @@ export default function Footer() {
         <Arrow />
       </button>
 
-      <div className="Footer">
+      <footer className="Footer">
         <li>
           <a
             href="https://dribbble.com/igorizviekov"
@@ -63,7 +63,7 @@ export default function Footer() {
           </a>
         </li>
         <p>IGOR IZVIEKOV 2020</p>
-      </div>
+      </footer>
     </Fragment>
   );
 }

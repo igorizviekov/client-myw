@@ -154,6 +154,41 @@ body h2 {
           transform: scale(1.1);
 }
 
+.Spinner {
+  display: block;
+  width: 3em;
+  height: 3em;
+  background-color: #480eb5;
+  -webkit-animation: spinner 3s  cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  animation: spinner 3s  cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
+  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
+}
+
+@-webkit-keyframes spinner {
+  50% {
+    border-radius: 50%;
+    -webkit-transform: scale(0.5) rotate(360deg);
+            transform: scale(0.5) rotate(360deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(720deg);
+            transform: scale(1) rotate(720deg);
+  }
+}
+
+@keyframes spinner {
+  50% {
+    border-radius: 50%;
+    -webkit-transform: scale(0.5) rotate(360deg);
+            transform: scale(0.5) rotate(360deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(720deg);
+            transform: scale(1) rotate(720deg);
+  }
+}
+
 .Main {
   padding: 5%;
   height: 90vh;

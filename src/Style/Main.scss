@@ -128,6 +128,28 @@ body {
   }
 }
 
+//Spinner
+
+.Spinner {
+  display: block;
+  width: 3em;
+  height: 3em;
+  background-color: $theme-color;
+  @include animation(
+    "spinner 3s  cubic-bezier(0.75, 0, 0.5, 1) infinite normal"
+  );
+  @include keyframes(spinner) {
+    50% {
+      border-radius: 50%;
+      transform: scale(0.5) rotate(360deg);
+    }
+    100% {
+      transform: scale(1) rotate(720deg);
+    }
+  }
+  @include shadow;
+}
+
 //main page==============
 .Main {
   padding: 5%;

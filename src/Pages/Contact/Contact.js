@@ -9,6 +9,7 @@ export default function Contact() {
           <h1>Let`s stay in touch </h1>
         </Animation>
       </div>
+
       <li className="Contact">
         <a
           href="https://www.facebook.com/igorizviekov"

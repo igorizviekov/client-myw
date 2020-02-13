@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import Button from "../../Components/UI/Button/Button";
 import Input from "../../Components/UI/Input/Input";
-
+import axios from "axios";
 class Form extends Component {
   state = {
+    loading: false,
     form: {
       name: {
         elementType: "input",
@@ -112,6 +113,26 @@ class Form extends Component {
     this.setState({ form: updatedForm, formIsValid: formIsValid });
   };
 
+  submitDataHandler = e => {
+    e.preventDefault();
+    this.setState({ loading: true });
+    const data = {
+      firstName: this.state.form.name.value,
+      lastName: this.state.form.lastName.value,
+      email: this.state.form.email.value,
+      message: this.state.form.message.value
+    };
+    console.log(data);
+    axios
+
+      .post("https://igor-izviekov.firebaseio.com/feedback.json", data)
+      .then(response => {
+        console.log(response);
+      })
+
+      .catch(error => console.log(error));
+  };
+
   render() {
     const formElementsArray = [];
     for (let key in this.state.form) {
@@ -121,7 +142,7 @@ class Form extends Component {
       });
     }
     let form = (
-      <form onSubmit={""}>
+      <form>
         {formElementsArray.map(formElement => (
           <Input
             key={formElement.id}
@@ -135,7 +156,12 @@ class Form extends Component {
           />
         ))}
         <br />
-        <Button disabled={!this.state.formIsValid}>SUBMIT</Button>
+        <Button
+          disabled={!this.state.formIsValid}
+          clicked={this.submitDataHandler}
+        >
+          SUBMIT
+        </Button>
       </form>
     );
     // if (this.props.loading) {

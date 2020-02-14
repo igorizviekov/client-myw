@@ -5,6 +5,7 @@ import Home from "../../Pages/Home/Home";
 import Portfolio from "../../Pages/Portfolio/Portfolio";
 import Contact from "../../Pages/Contact/Contact";
 import { Route, Switch } from "react-router-dom";
+
 const Layout = () => {
   return (
     <div>

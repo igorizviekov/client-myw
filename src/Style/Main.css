@@ -57,6 +57,15 @@ body h2 {
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
 }
 
+.Touch {
+  color: white;
+  background-color: #480eb5;
+  padding-top: 17%;
+  padding-bottom: 0;
+  margin-bottom: 5%;
+  height: 70px;
+}
+
 .Nav {
   background-color: white;
   position: fixed;
@@ -155,6 +164,9 @@ body h2 {
 }
 
 .Spinner {
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 5%;
   display: block;
   width: 3em;
   height: 3em;
@@ -191,7 +203,7 @@ body h2 {
 
 .Main {
   padding: 5%;
-  height: 90vh;
+  height: 80vh;
 }
 
 .Main .Title {
@@ -308,14 +320,6 @@ body h2 {
   text-align: left;
 }
 
-.Touch {
-  color: white;
-  background-color: #480eb5;
-  padding-top: 20%;
-  margin-bottom: 5%;
-  height: 15%;
-}
-
 .Contact {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -343,7 +347,7 @@ body h2 {
   color: #480eb5;
 }
 
-.Form-section {
+.Form {
   background-color: #f7f7f7;
   padding-top: 5%;
   padding-bottom: 10%;
@@ -401,7 +405,7 @@ body h2 {
 }
 
 .InputElement:focus {
-  border-bottom: 5px solid #babbbf;
+  border-bottom: 5px solid #480eb5;
 }
 
 .InputElement:focus::-webkit-input-placeholder {
@@ -432,5 +436,25 @@ body h2 {
   background-color: #f7f7f7;
   height: 150px;
   margin-bottom: 5%;
+}
+
+.Portfolio {
+  height: 900px;
+}
+
+.Portfolio p,
+.Portfolio h2 {
+  padding: 0 5%;
+  text-indent: 2%;
+  text-align: left;
+}
+
+.Portfolio a {
+  margin-left: 1%;
+  color: black;
+}
+
+.Portfolio img {
+  width: 70%;
 }
 /*# sourceMappingURL=Main.css.map */

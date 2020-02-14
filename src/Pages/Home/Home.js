@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Main from "../../Components/Main/Main";
 import About from "../../Components/About/About";
 import Skills from "../../Components/Skills/Skills";
@@ -13,12 +13,11 @@ export default function Home() {
   };
 
   return (
-    <div className="Home">
+    <Fragment>
       <Main />
       <Button clicked={portfolioButton}>PORTFOLIO</Button>
       <About />
-
       <Skills />
-    </div>
+    </Fragment>
   );
 }

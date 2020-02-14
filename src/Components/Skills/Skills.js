@@ -25,11 +25,12 @@ export default function Skills() {
           <p>HTML/CSS</p>
           <p>React</p>
           <p>FireBase</p>
-          <p>Git</p>
-          <p>Redux</p>
           <p>SASS</p>
-          <p>GitHub</p>
-          <p>Router</p>
+          <p>Redux</p>
+          <p>Git</p>
+
+          <p>Final Cut</p>
+          <p>WebPack</p>
         </div>
       </div>
       <Animation>

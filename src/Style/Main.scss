@@ -50,6 +50,16 @@ body {
   }
 }
 
+//Title
+.Touch {
+  color: $contrast-color;
+  background-color: $theme-color;
+  padding-top: 17%;
+  padding-bottom: 0;
+  margin-bottom: 5%;
+  height: 70px;
+}
+
 // navbar
 .Nav {
   background-color: white;
@@ -131,6 +141,9 @@ body {
 //Spinner
 
 .Spinner {
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 5%;
   display: block;
   width: 3em;
   height: 3em;
@@ -153,7 +166,7 @@ body {
 //main page==============
 .Main {
   padding: 5%;
-  height: 90vh;
+  height: 80vh;
 
   .Title {
     text-align: left;
@@ -193,8 +206,7 @@ body {
   background-color: $theme-color;
   color: $contrast-color;
   & p {
-    text-indent: $indent;
-    text-align: left;
+    @include p;
   }
 }
 //skills section
@@ -223,15 +235,6 @@ body {
 
 //Contact page===================
 
-//Title
-.Touch {
-  color: $contrast-color;
-  background-color: $theme-color;
-  padding-top: 20%;
-  margin-bottom: 5%;
-  height: 15%;
-}
-
 //Links
 .Contact {
   display: flex;
@@ -251,7 +254,7 @@ body {
 }
 
 //Form
-.Form-section {
+.Form {
   background-color: $third-color;
   padding-top: 5%;
   padding-bottom: 10%;
@@ -283,7 +286,7 @@ body {
   }
 
   &:focus {
-    border-bottom: 5px solid $second-color;
+    border-bottom: 5px solid $theme-color;
     &::placeholder {
       -webkit-transform: translateY(-20px);
       transform: translateY(-20px);
@@ -298,5 +301,23 @@ body {
     background-color: $third-color;
     height: 150px;
     margin-bottom: 5%;
+  }
+}
+
+//Portfolio page========================
+
+.Portfolio {
+  height: 900px;
+  & p,
+  h2 {
+    padding: 0 $page-padding;
+    @include p;
+  }
+  & a {
+    margin-left: 1%;
+    color: $text-color;
+  }
+  img {
+    width: 70%;
   }
 }

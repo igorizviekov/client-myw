@@ -13,10 +13,10 @@ const About = props => {
       <Animation>
         <h1>About me</h1>
       </Animation>
-      <p>I have a huge passion for delicious food, sports and travel.</p>
+      <p>I am a big fan of delicious food, sports and travel.</p>
       <p>
         For the past 10 years I’ve lived and worked in 5 different countries in
-        Europe, the Middle East, the USA and Asia.{" "}
+        Europe, the Middle East, North America and Asia.
       </p>
       <p>
         In 2019, I tried how to code, and since then it has become a part of my

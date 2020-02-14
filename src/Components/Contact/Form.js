@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from "react";
-import Button from "../../Components/UI/Button/Button";
-import Input from "../../Components/UI/Input/Input";
+import Spinner from "../UI/Spinner/Spinner";
+import Button from "../UI/Button/Button";
+import Input from "../UI/Input/Input";
 import axios from "axios";
 class Form extends Component {
   state = {
     loading: false,
+    error: false,
+    requestSent: false,
     form: {
       name: {
         elementType: "input",
@@ -122,15 +125,12 @@ class Form extends Component {
       email: this.state.form.email.value,
       message: this.state.form.message.value
     };
-    console.log(data);
     axios
-
       .post("https://igor-izviekov.firebaseio.com/feedback.json", data)
       .then(response => {
-        console.log(response);
+        this.setState({ loading: false, requestSent: true });
       })
-
-      .catch(error => console.log(error));
+      .catch(error => this.setState({ error: true }));
   };
 
   render() {
@@ -141,33 +141,60 @@ class Form extends Component {
         config: this.state.form[key]
       });
     }
-    let form = (
-      <form>
-        {formElementsArray.map(formElement => (
-          <Input
-            key={formElement.id}
-            elementType={formElement.config.elementType}
-            elementConfig={formElement.config.elementConfig}
-            value={formElement.config.value}
-            invalid={!formElement.config.valid}
-            shouldValidate={formElement.config.validation}
-            touched={formElement.config.touched}
-            changed={event => this.inputChangedHandler(event, formElement.id)}
-          />
-        ))}
-        <br />
-        <Button
-          disabled={!this.state.formIsValid}
-          clicked={this.submitDataHandler}
-        >
-          SUBMIT
-        </Button>
-      </form>
+    let button = (
+      <Button
+        disabled={!this.state.formIsValid}
+        clicked={this.submitDataHandler}
+      >
+        SUBMIT
+      </Button>
     );
-    // if (this.props.loading) {
-    //   form = <Spinner />;
-    // }
-    return <Fragment>{form}</Fragment>;
+    if (this.state.loading) {
+      button = <Spinner />;
+    }
+    if (this.state.error) {
+      button = (
+        <div>
+          <h2>Something went wrong</h2>
+          <p>Please try again later</p>
+        </div>
+      );
+    }
+    let title = (
+      <div>
+        <h1>Fill the form</h1>
+        <h2>It`s easy</h2>
+      </div>
+    );
+    if (this.state.requestSent) {
+      title = (
+        <div>
+          <h2>Thank you, {this.state.form.name.value}</h2>
+          <p>I will reply you soon</p>
+        </div>
+      );
+    }
+    return (
+      <Fragment>
+        {title}
+        <form className="Form">
+          {formElementsArray.map(formElement => (
+            <Input
+              key={formElement.id}
+              elementType={formElement.config.elementType}
+              elementConfig={formElement.config.elementConfig}
+              value={formElement.config.value}
+              invalid={!formElement.config.valid}
+              shouldValidate={formElement.config.validation}
+              touched={formElement.config.touched}
+              changed={event => this.inputChangedHandler(event, formElement.id)}
+            />
+          ))}
+          <br />
+          {button}
+        </form>
+      </Fragment>
+    );
   }
 }
 

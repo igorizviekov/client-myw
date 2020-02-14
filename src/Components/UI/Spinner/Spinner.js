@@ -1,3 +1,5 @@
 import React from "react";
 
-export const Spinner = <span className="Spinner"></span>;
+export default function Spinner() {
+  return <span className="Spinner"></span>;
+}

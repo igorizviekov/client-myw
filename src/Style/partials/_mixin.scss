@@ -107,3 +107,8 @@ $dot-space: 10px;
   -o-animation: #{$str};
   animation: #{$str};
 }
+
+@mixin p {
+  text-indent: $indent;
+  text-align: left;
+}

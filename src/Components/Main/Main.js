@@ -17,6 +17,7 @@ export default function Main(props) {
       </div>
       <Logo />
       <br />
+      <br />
     </div>
   );
 }

@@ -15,9 +15,11 @@ export default function Burger() {
 
   return (
     <div className="Portfolio">
-      <Animation>
-        <h1 className="Touch">My Work</h1>
-      </Animation>
+      <div className="Touch">
+        <Animation>
+          <h1>My Work</h1>
+        </Animation>
+      </div>
       <br />
       <h2>Bright Burger</h2>
       <p>My very first single page application.</p>

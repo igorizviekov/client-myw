@@ -308,7 +308,7 @@ body {
 //Portfolio page========================
 
 .Portfolio {
-  height: 900px;
+  height: auto;
   & p,
   h2 {
     padding: 0 $page-padding;
@@ -319,6 +319,8 @@ body {
     color: $text-color;
   }
   img {
+    height: auto;
     width: 70%;
+    margin-bottom: 10%;
   }
 }

@@ -439,7 +439,7 @@ body h2 {
 }
 
 .Portfolio {
-  height: 900px;
+  height: auto;
 }
 
 .Portfolio p,
@@ -455,6 +455,8 @@ body h2 {
 }
 
 .Portfolio img {
+  height: auto;
   width: 70%;
+  margin-bottom: 10%;
 }
 /*# sourceMappingURL=Main.css.map */

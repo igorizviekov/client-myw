@@ -13,7 +13,7 @@ const About = props => {
       <Animation>
         <h1>About me</h1>
       </Animation>
-      <p>I am a big fan of delicious food, sports and travel.</p>
+      <p>I am always up to meet new people, learn new things and travel.</p>
       <p>
         For the past 10 years I’ve lived and worked in 5 different countries in
         Europe, the Middle East, North America and Asia.

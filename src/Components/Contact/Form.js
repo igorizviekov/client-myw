@@ -2,8 +2,8 @@ import React, { useState, Fragment } from "react";
 import Spinner from "../UI/Spinner/Spinner";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
-import axios from "axios";
-
+import ErrorMessage from "../UI/ErrorMessage";
+import { getFirebase } from "../../firebase";
 const Form = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -61,7 +61,7 @@ const Form = () => {
       value: "",
       validation: {
         required: true,
-        minLength: 10
+        minLength: 4
       },
       valid: false,
       touched: false
@@ -119,14 +119,17 @@ const Form = () => {
   const submitDataHandler = e => {
     e.preventDefault();
     setLoading(true);
-    const data = {
-      firstName: form.name.value,
-      lastName: form.lastName.value,
-      email: form.email.value,
-      message: form.message.value
-    };
-    axios
-      .post("https://igor-izviekov.firebaseio.com/feedback.json", data)
+    getFirebase()
+      .database()
+      .ref("/feedback")
+      //create unique folder
+      .child(form.name.value + form.lastName.value)
+      .set({
+        firstName: form.name.value,
+        lastName: form.lastName.value,
+        email: form.email.value,
+        message: form.message.value
+      })
       .then(response => {
         setLoading(false);
         setRequest(true);
@@ -150,44 +153,37 @@ const Form = () => {
   if (loading) {
     button = <Spinner />;
   }
-  if (error) {
-    button = (
-      <div>
-        <h2>Something went wrong</h2>
-        <p>Please try again later</p>
-      </div>
-    );
-  }
-  let title = (
-    <div>
-      <h1>Fill the form</h1>
-      <h2>It`s easy</h2>
-    </div>
-  );
+
+  let userForm = formElementsArray.map(formElement => (
+    <Input
+      key={formElement.id}
+      elementType={formElement.config.elementType}
+      elementConfig={formElement.config.elementConfig}
+      value={formElement.config.value}
+      invalid={!formElement.config.valid}
+      shouldValidate={formElement.config.validation}
+      touched={formElement.config.touched}
+      changed={event => inputChangedHandler(event, formElement.id)}
+    />
+  ));
   if (requestSent) {
-    title = (
+    userForm = (
       <div>
         <h2>Thank you, {form.name.value}</h2>
         <p>I will reply you soon</p>
       </div>
     );
+    button = null;
+  }
+  if (error) {
+    userForm = <ErrorMessage />;
   }
   return (
     <Fragment>
-      {title}
+      <h1>Fill the form</h1>
+      <h2>It`s easy</h2>
       <form className="Form">
-        {formElementsArray.map(formElement => (
-          <Input
-            key={formElement.id}
-            elementType={formElement.config.elementType}
-            elementConfig={formElement.config.elementConfig}
-            value={formElement.config.value}
-            invalid={!formElement.config.valid}
-            shouldValidate={formElement.config.validation}
-            touched={formElement.config.touched}
-            changed={event => inputChangedHandler(event, formElement.id)}
-          />
-        ))}
+        {userForm}
         <br />
         {button}
       </form>

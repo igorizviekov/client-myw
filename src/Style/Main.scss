@@ -33,6 +33,9 @@ body {
   margin-bottom: 7%;
   transition: 400ms;
   @include shadow;
+  @include large-screen {
+    padding: 0.4em;
+  }
   &:hover {
     @include hover-shadow;
     transform: scale(1.01);
@@ -58,6 +61,9 @@ body {
   padding-bottom: 0;
   margin-bottom: 5%;
   height: 70px;
+  @include large-screen {
+    padding-top: 10%;
+  }
 }
 
 // navbar
@@ -72,23 +78,25 @@ body {
   padding-bottom: 5%;
   @include hover-shadow;
   z-index: 1000;
-
+  @include large-screen {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
   & a {
     @include links;
     color: $text-color;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 0.5em;
 
     &:after {
       content: "";
       display: block;
-      margin: -10px;
+      margin: -0.5em;
       width: 0;
-      height: 10px;
+      height: 0.5em;
       background: $theme-color;
       transition: width 0.3s;
     }
-
     &:hover:after {
       width: 70%;
     }
@@ -104,14 +112,15 @@ body {
   left: 50%;
   cursor: pointer;
   padding: 0;
-  margin: -40px;
-  margin-left: -30px;
-  width: 60px;
-  height: 60px;
+  margin: -2.5em;
+  margin-left: -2.1em;
+  width: 4em;
+  height: 4em;
   outline: none;
   border: none;
   background-color: $third-color;
   @include shadow;
+
   &:hover {
     transform: scale(1.02);
     @include hover-shadow;
@@ -209,6 +218,15 @@ body {
   & p {
     @include p;
   }
+  @include large-screen {
+    @include back-image("../Assets/me.png", auto 90%, 35em 3em);
+    & {
+      text-align: left;
+    }
+    p {
+      width: 40%;
+    }
+  }
 }
 //skills section
 .Skills {
@@ -216,12 +234,20 @@ body {
   padding-top: 5%;
   padding-bottom: 5%;
   margin-bottom: 10%;
-  .Grid {
-    margin-top: 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  & img {
+    user-select: none;
+    pointer-events: none;
+    width: 3em;
+  }
+  @include large-screen {
+    margin-bottom: 5%;
   }
 }
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .Skills2 {
   padding: $page-padding;
   margin-bottom: 10%;
@@ -229,8 +255,17 @@ body {
     color: $theme-color;
   }
   p {
-    text-indent: $indent;
-    text-align: left;
+    @include p;
+  }
+  @include large-screen {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5em;
+    @include back-image("../Assets/Working.svg", 15em, center);
+    & .Design,
+    .Frontend {
+      width: 10em;
+    }
   }
 }
 
@@ -252,6 +287,14 @@ body {
       color: $theme-color;
     }
   }
+  @include large-screen {
+    margin-bottom: 5%;
+    @include back-image("../Assets/Message.svg", 30em, center);
+    & a {
+      font-size: $screen-h2;
+      padding: 1%;
+    }
+  }
 }
 
 //Form
@@ -259,6 +302,9 @@ body {
   background-color: $third-color;
   padding-top: 5%;
   padding-bottom: 10%;
+  @include large-screen {
+    padding-bottom: 2%;
+  }
 }
 
 .Input {
@@ -268,6 +314,9 @@ body {
   padding: 1% 5%;
   box-sizing: border-box;
   @include shadow;
+  @include large-screen {
+    width: 60%;
+  }
 }
 
 .InputElement {
@@ -285,7 +334,6 @@ body {
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
-
   &:focus {
     border-bottom: 5px solid $theme-color;
     &::placeholder {
@@ -293,14 +341,12 @@ body {
       transform: translateY(-20px);
     }
   }
-
   &.Invalid {
     border-bottom: 5px solid rgb(154, 5, 5);
   }
-
   &.TextArea {
     background-color: $third-color;
-    height: 150px;
+    height: 10em;
     margin-bottom: 5%;
   }
 }
@@ -308,19 +354,49 @@ body {
 //Portfolio page========================
 
 .Portfolio {
+  background-color: $third-color;
   height: auto;
-  & p,
-  h2 {
-    padding: 0 $page-padding;
-    @include p;
-  }
-  & a {
-    margin-left: 7px;
-    color: $text-color;
-  }
-  img {
-    height: auto;
-    width: 70%;
-    margin-bottom: 10%;
+  min-height: 90vh;
+  & .Card {
+    background-color: white;
+    margin: 2em;
+    padding-top: 2em;
+    @include shadow;
+    & p,
+    h2 {
+      padding: 0 $page-padding;
+      @include p;
+    }
+    & a {
+      margin-left: 0.4em;
+      color: $text-color;
+    }
+    & img {
+      height: auto;
+      width: 70%;
+    }
+
+    @include large-screen {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 60%;
+      margin: auto;
+      margin-bottom: 5%;
+      padding: 1% 5%;
+      min-height: 60vh;
+      & section {
+        width: 40%;
+      }
+      & .Image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+      }
+      img {
+        width: 80%;
+      }
+    }
   }
 }

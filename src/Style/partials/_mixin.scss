@@ -31,6 +31,9 @@
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
+  @include large-screen {
+    top: 35%;
+  }
 }
 
 // Colors
@@ -42,8 +45,8 @@ $dot-size: 2px;
 $dot-space: 10px;
 @mixin card1 {
   z-index: 50;
-  width: 200px;
-  height: 200px;
+  width: 12.5em;
+  height: 12.5em;
   background: linear-gradient(
         90deg,
         $bg-color ($dot-space - $dot-size),
@@ -58,26 +61,26 @@ $dot-space: 10px;
 
 @mixin card4 {
   z-index: 150;
-  margin-top: 5%;
-  width: 200px;
-  height: 200px;
+  margin-top: -3em;
+  width: 12.5em;
+  height: 12.5em;
   background-image: url("../Assets/logo.svg");
 }
 
 @mixin card2 {
   z-index: 50;
-  margin-top: 350px;
-  margin-left: -130px;
-  width: 150px;
-  height: 100px;
+  margin-top: 20em;
+  margin-left: -8em;
+  width: 8em;
+  height: 7em;
   background-image: url("../Assets/Stroke.svg");
 }
 
 @mixin card3 {
-  margin-top: 360px;
-  margin-left: 150px;
-  width: 150px;
-  height: 100px;
+  margin-top: 20em;
+  margin-left: 8em;
+  width: 8em;
+  height: 7em;
   z-index: 5;
   background-image: url("../Assets/Stroke.svg");
 }
@@ -111,4 +114,17 @@ $dot-space: 10px;
 @mixin p {
   text-indent: $indent;
   text-align: left;
+}
+
+@mixin large-screen() {
+  @media (min-width: 40em) {
+    @content;
+  }
+}
+
+@mixin back-image($image, $size, $position) {
+  background-image: url($image);
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: $position;
 }

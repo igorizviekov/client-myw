@@ -224,6 +224,18 @@ body {
   .card4 {
     @include card4;
   }
+  @supports (-moz-appearance: none) {
+    .card3 {
+      margin-left: 17em;
+    }
+    .card2 {
+      margin-left: -18em;
+    }
+    .card2,
+    .card3 {
+      margin-top: 22em;
+    }
+  }
 }
 
 //about me section
@@ -231,8 +243,6 @@ body {
   padding: $page-padding;
   background-color: $theme-color;
   color: $contrast-color;
-  margin-bottom: 5%;
-
   & p {
     @include p;
   }
@@ -250,9 +260,7 @@ body {
   background-color: $third-color;
   margin-bottom: 5%;
   padding: $page-padding;
-  @include large-screen {
-    min-height: 80vh;
-  }
+
   & img {
     user-select: none;
     pointer-events: none;
@@ -265,9 +273,9 @@ body {
 }
 
 .Skills2 {
-  min-height: 75vh;
   .SkillsInfo {
     padding: $page-padding;
+    margin-bottom: 5%;
     h2 {
       color: $theme-color;
     }

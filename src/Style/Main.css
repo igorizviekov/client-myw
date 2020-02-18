@@ -340,11 +340,23 @@ body h2 {
   background-image: url("../Assets/logo.svg");
 }
 
+@supports (-moz-appearance: none) {
+  .Main .card3 {
+    margin-left: 17em;
+  }
+  .Main .card2 {
+    margin-left: -18em;
+  }
+  .Main .card2,
+  .Main .card3 {
+    margin-top: 22em;
+  }
+}
+
 .About {
   padding: 5%;
   background-color: #480eb5;
   color: white;
-  margin-bottom: 5%;
 }
 
 .About p {
@@ -372,12 +384,6 @@ body h2 {
   padding: 5%;
 }
 
-@media (min-width: 40em) {
-  .Skills {
-    min-height: 80vh;
-  }
-}
-
 .Skills img {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -394,12 +400,9 @@ body h2 {
       grid-template-columns: 1fr 1fr 1fr;
 }
 
-.Skills2 {
-  min-height: 75vh;
-}
-
 .Skills2 .SkillsInfo {
   padding: 5%;
+  margin-bottom: 5%;
 }
 
 .Skills2 .SkillsInfo h2 {

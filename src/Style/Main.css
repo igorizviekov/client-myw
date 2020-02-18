@@ -387,7 +387,7 @@ body h2 {
   width: 3em;
 }
 
-.Grid {
+.Skills .Grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;

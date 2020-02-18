@@ -258,11 +258,12 @@ body {
     pointer-events: none;
     width: 3em;
   }
+  & .Grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
-.Grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
+
 .Skills2 {
   min-height: 75vh;
   .SkillsInfo {

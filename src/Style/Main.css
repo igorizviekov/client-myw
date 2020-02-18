@@ -18,6 +18,12 @@ body h2 {
   font-weight: normal;
 }
 
+@media (min-width: 40em) {
+  body p {
+    font-size: large;
+  }
+}
+
 .Button {
   cursor: pointer;
   font-family: "Rokkitt", serif;
@@ -91,9 +97,23 @@ body h2 {
   width: 100%;
   padding-top: 5%;
   padding-bottom: 5%;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.289);
   z-index: 1000;
+}
+
+.Nav.Hidden {
+  -webkit-transform: translateY(-110%);
+          transform: translateY(-110%);
+}
+
+.Nav.ShadowScroll {
+  -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
+  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
 }
 
 @media (min-width: 40em) {
@@ -108,13 +128,12 @@ body h2 {
   font-weight: bold;
   color: black;
   display: inline-block;
-  margin-bottom: 0.5em;
 }
 
 .Nav a:after {
   content: "";
   display: block;
-  margin: -0.5em;
+  margin: -0.2em;
   width: 0;
   height: 0.5em;
   background: #480eb5;
@@ -151,6 +170,12 @@ body h2 {
           transform: scale(1.02);
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.289);
+}
+
+@media (min-width: 40em) {
+  .Scroll {
+    zoom: 1.3;
+  }
 }
 
 .Footer {
@@ -225,6 +250,12 @@ body h2 {
   height: 80vh;
 }
 
+@media (min-width: 40em) {
+  .Main {
+    height: 70vh;
+  }
+}
+
 .Main .Title {
   text-align: left;
   margin-top: 20%;
@@ -268,7 +299,8 @@ body h2 {
   .Main .card2,
   .Main .card3,
   .Main .card4 {
-    top: 35%;
+    zoom: 1.4;
+    top: 30%;
   }
 }
 
@@ -293,7 +325,7 @@ body h2 {
 
 .Main .card3 {
   margin-top: 20em;
-  margin-left: 8em;
+  margin-left: 7.8em;
   width: 8em;
   height: 7em;
   z-index: 5;
@@ -312,33 +344,38 @@ body h2 {
   padding: 5%;
   background-color: #480eb5;
   color: white;
+  margin-bottom: 5%;
 }
 
 .About p {
-  text-indent: 5%;
+  text-indent: 1em;
   text-align: left;
 }
 
 @media (min-width: 40em) {
   .About {
     background-image: url("../Assets/me.png");
-    background-size: auto 90%;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: 35em 3em;
+    background-position: 80% bottom;
+    padding-bottom: 0;
+    min-height: 25em;
   }
-  .About {
-    text-align: left;
-  }
-  .About p {
-    width: 40%;
+  .About section {
+    width: 45%;
   }
 }
 
 .Skills {
   background-color: #f7f7f7;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  padding: 5%;
+}
+
+@media (min-width: 40em) {
+  .Skills {
+    min-height: 80vh;
+  }
 }
 
 .Skills img {
@@ -350,12 +387,6 @@ body h2 {
   width: 3em;
 }
 
-@media (min-width: 40em) {
-  .Skills {
-    margin-bottom: 5%;
-  }
-}
-
 .Grid {
   display: -ms-grid;
   display: grid;
@@ -364,21 +395,24 @@ body h2 {
 }
 
 .Skills2 {
-  padding: 5%;
-  margin-bottom: 10%;
+  min-height: 75vh;
 }
 
-.Skills2 h2 {
+.Skills2 .SkillsInfo {
+  padding: 5%;
+}
+
+.Skills2 .SkillsInfo h2 {
   color: #480eb5;
 }
 
-.Skills2 p {
-  text-indent: 5%;
+.Skills2 .SkillsInfo p {
+  text-indent: 1em;
   text-align: left;
 }
 
 @media (min-width: 40em) {
-  .Skills2 {
+  .Skills2 .SkillsInfo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -387,13 +421,15 @@ body h2 {
             justify-content: space-between;
     padding: 0 5em;
     background-image: url("../Assets/Working.svg");
-    background-size: 15em;
+    background-size: 20em;
     background-repeat: no-repeat;
     background-position: center;
   }
-  .Skills2 .Design,
-  .Skills2 .Frontend {
-    width: 10em;
+  .Skills2 .SkillsInfo section {
+    width: 13em;
+  }
+  .Skills2 .SkillsInfo h2 {
+    width: 5em;
   }
 }
 
@@ -428,7 +464,7 @@ body h2 {
   .Contact {
     margin-bottom: 5%;
     background-image: url("../Assets/Message.svg");
-    background-size: 30em;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -442,6 +478,7 @@ body h2 {
   background-color: #f7f7f7;
   padding-top: 5%;
   padding-bottom: 10%;
+  min-height: 50vh;
 }
 
 @media (min-width: 40em) {
@@ -477,6 +514,14 @@ body h2 {
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+@media (min-width: 40em) {
+  .InputElement {
+    padding-top: 3%;
+  }
 }
 
 .InputElement::-webkit-input-placeholder {
@@ -541,6 +586,12 @@ body h2 {
   margin-bottom: 5%;
 }
 
+@media (min-width: 40em) {
+  .InputElement.TextArea {
+    height: 14em;
+  }
+}
+
 .Portfolio {
   background-color: #f7f7f7;
   height: auto;
@@ -558,7 +609,7 @@ body h2 {
 .Portfolio .Card p,
 .Portfolio .Card h2 {
   padding: 0 5%;
-  text-indent: 5%;
+  text-indent: 1em;
   text-align: left;
 }
 

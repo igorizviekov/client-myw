@@ -32,7 +32,8 @@
   background-repeat: no-repeat;
   will-change: transform;
   @include large-screen {
-    top: 35%;
+    zoom: 1.4;
+    top: 30%;
   }
 }
 
@@ -78,7 +79,7 @@ $dot-space: 10px;
 
 @mixin card3 {
   margin-top: 20em;
-  margin-left: 8em;
+  margin-left: 7.8em;
   width: 8em;
   height: 7em;
   z-index: 5;

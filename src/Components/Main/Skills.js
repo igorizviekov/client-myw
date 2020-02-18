@@ -29,26 +29,28 @@ export default function Skills() {
           <p>WebPack</p>
         </div>
       </div>
-      <Animation>
-        <h1>What do I do?</h1>
-      </Animation>
-      <br />
       <div className="Skills2">
-        <div className="Design">
-          <h2>Web Design</h2>
-          <p>
-            Minimalist and clean, where every stroke exists for a purpose. All
-            about your website, including the content, the way it looks, and the
-            way it works - I’ve got you covered.
-          </p>
-        </div>
-        <div className="Frontend">
-          <h2>Frontend Development</h2>
-          <p>
-            I will implement the design so the website runs smoothly in
-            different browsers, different operating systems and different
-            devices, from widescreen monitors to mobile phones.
-          </p>
+        <Animation>
+          <h1>What do I do?</h1>
+        </Animation>
+        <br />
+        <div className="SkillsInfo">
+          <section>
+            <h2>Web Design</h2>
+            <p>
+              Minimalist and clean, where every stroke exists for a purpose. All
+              about your website, including the content, the way it looks, and
+              the way it works - I’ve got you covered.
+            </p>
+          </section>
+          <section>
+            <h2>Frontend Development</h2>
+            <p>
+              I will implement the design so the website runs smoothly in
+              different browsers, different operating systems and different
+              devices, from widescreen monitors to mobile phones.
+            </p>
+          </section>
         </div>
       </div>
     </Fragment>

@@ -13,8 +13,14 @@ export default function Skills() {
       query: `
       {
         skills {
-          design
-          code
+          design {
+            id
+            design
+          }
+          code {
+            id
+            code
+          }
         }
       }
       `
@@ -25,23 +31,16 @@ export default function Skills() {
         if (response.data.errors) {
           return setError(true);
         }
-        const codeData = [];
-        const designData = [];
-        response.data.data.skills.map(s => {
-          return codeData.push(s.code), designData.push(s.design);
-        });
-        const filteredCode = codeData.filter(c => c !== null);
-        const filteredDesign = designData.filter(d => d !== null);
-        setCode(filteredCode);
-        setDesign(filteredDesign);
+        setCode(response.data.data.skills.code);
+        setDesign(response.data.data.skills.design);
       })
       .catch(() => setError(true));
   }, []);
   let codeSkills = code.map(skill => {
-    return <p key={skill}>{skill}</p>;
+    return <p key={skill.id}>{skill.code}</p>;
   });
   let designSkills = design.map(skill => {
-    return <p key={skill}>{skill}</p>;
+    return <p key={skill.id}>{skill.design}</p>;
   });
   if (error) {
     codeSkills = ["JavaScript", "React", "NodeJS", "Vue", "GraphQL", "mongoDB"];

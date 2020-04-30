@@ -49,13 +49,9 @@ body h2 {
 .Button:hover {
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.289);
-  -webkit-transform: scale(1.01);
-          transform: scale(1.01);
 }
 
 .Button:active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
   -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
 }
@@ -359,6 +355,10 @@ body h2 {
   color: white;
 }
 
+.About .profilePicture {
+  display: none;
+}
+
 .About p {
   text-indent: 1em;
   text-align: left;
@@ -366,12 +366,20 @@ body h2 {
 
 @media (min-width: 40em) {
   .About {
-    background-image: url("../Assets/me.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 80% bottom;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-bottom: 0;
     min-height: 25em;
+  }
+  .About .profilePicture {
+    display: block;
+    width: 20em;
   }
   .About section {
     width: 45%;

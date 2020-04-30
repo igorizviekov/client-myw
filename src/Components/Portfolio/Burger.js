@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
-import { getFirebase } from "../../firebase";
+import axios from "axios";
 import Spinner from "../UI/Spinner/Spinner";
 import ErrorMessage from "../UI/ErrorMessage";
 export default function Burger() {
@@ -17,26 +17,37 @@ export default function Burger() {
     }
   });
   useEffect(() => {
-    getFirebase()
-      .database()
-      .ref("/projects")
-      .orderByChild("dateFormatted")
-      .once("value")
-      .then(snapshot => {
-        const loadedData = [];
-        const snapshotVal = snapshot.val();
-        for (let id in snapshotVal) {
-          loadedData.push(snapshotVal[id]);
+    setLoading(true);
+    const graphqlQuery = {
+      query: `
+        {
+        projects {
+          id
+          title
+          p1
+          p2
+          img
+          link
+          alt
         }
-        const newestFirst = loadedData.reverse();
-        setCards(newestFirst);
+      }
+      `
+    };
+    axios
+      .post("http://localhost:8080/graphql", graphqlQuery)
+      .then(response => {
+        if (response.data.errors) {
+          return setError(true);
+        }
+        const loadedData = response.data.data.projects.reverse();
+        setCards(loadedData);
         setLoading(false);
       })
-      .catch(error => setError(true));
+      .catch(() => setError(true));
   }, []);
 
   let card = cards.map(card => (
-    <div className="Card" key={card.title}>
+    <div className="Card" key={card.id}>
       <section>
         <h2>{card.title}</h2>
         <p>{card.p1}</p>

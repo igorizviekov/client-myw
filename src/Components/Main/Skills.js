@@ -1,8 +1,52 @@
-import React, { Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
+import axios from "axios";
 import pen from "../../Assets/Pen.svg";
-import code from "../../Assets/Code.svg";
+import codeIcon from "../../Assets/Code.svg";
 import Animation from "../UI/AnimationTracking";
 export default function Skills() {
+  const [design, setDesign] = useState([]);
+  const [code, setCode] = useState([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const graphqlQuery = {
+      query: `
+      {
+        skills {
+          design
+          code
+        }
+      }
+      `
+    };
+    axios
+      .post("http://localhost:8080/graphql", graphqlQuery)
+      .then(response => {
+        if (response.data.errors) {
+          return setError(true);
+        }
+        const codeData = [];
+        const designData = [];
+        response.data.data.skills.map(s => {
+          return codeData.push(s.code), designData.push(s.design);
+        });
+        const filteredCode = codeData.filter(c => c !== null);
+        const filteredDesign = designData.filter(d => d !== null);
+        setCode(filteredCode);
+        setDesign(filteredDesign);
+      })
+      .catch(() => setError(true));
+  }, []);
+  let codeSkills = code.map(skill => {
+    return <p key={skill}>{skill}</p>;
+  });
+  let designSkills = design.map(skill => {
+    return <p key={skill}>{skill}</p>;
+  });
+  if (error) {
+    codeSkills = ["JavaScript", "React", "NodeJS", "Vue", "GraphQL", "mongoDB"];
+    designSkills = ["Illustrator", "Photoshop", "Final Cut", "XD"];
+  }
   return (
     <Fragment>
       <div className="Skills">
@@ -12,22 +56,9 @@ export default function Skills() {
         <br />
         <img src={pen} alt="Pen" />
         <br />
-        <p>Illustrator</p>
-        <p>Photoshop</p>
-        <p>XD</p>
-        <br />
-        <img src={code} alt="Code" />
-        <div className="Grid">
-          <p>JavaScript</p>
-          <p>HTML/CSS</p>
-          <p>React</p>
-          <p>FireBase</p>
-          <p>SASS</p>
-          <p>Redux</p>
-          <p>Git</p>
-          <p>Final Cut</p>
-          <p>WebPack</p>
-        </div>
+        {designSkills}
+        <img src={codeIcon} alt="Code" />
+        <div className="Grid">{codeSkills}</div>
       </div>
       <div className="Skills2">
         <Animation>
@@ -44,7 +75,7 @@ export default function Skills() {
             </p>
           </section>
           <section>
-            <h2>Frontend Development</h2>
+            <h2>Web Development</h2>
             <p>
               I will implement the design so the website runs smoothly in
               different browsers, different operating systems and different

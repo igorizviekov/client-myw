@@ -3,7 +3,8 @@ import Spinner from "../UI/Spinner/Spinner";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
 import ErrorMessage from "../UI/ErrorMessage";
-import { getFirebase } from "../../firebase";
+import axios from "axios";
+
 const Form = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -119,18 +120,24 @@ const Form = () => {
   const submitDataHandler = e => {
     e.preventDefault();
     setLoading(true);
-    getFirebase()
-      .database()
-      .ref("/feedback")
-      //create unique folder
-      .child(form.name.value + form.lastName.value)
-      .set({
-        firstName: form.name.value,
-        lastName: form.lastName.value,
-        email: form.email.value,
-        message: form.message.value
-      })
+    const graphqlQuery = {
+      query: `
+        mutation {
+          submitFeedback(userInput: {
+            firstName: "${form.name.value}",
+            lastName: "${form.lastName.value}",
+            email: "${form.email.value}",
+            message: "${form.message.value}"
+          }) { message }
+        }`
+    };
+    axios
+      .post("http://localhost:8080/graphql", graphqlQuery)
       .then(response => {
+        console.log(response.data);
+        if (response.data.errors) {
+          return setError(true);
+        }
         setLoading(false);
         setRequest(true);
       })
@@ -170,7 +177,7 @@ const Form = () => {
     userForm = (
       <div>
         <h2>Thank you, {form.name.value}</h2>
-        <p>I will reply you soon</p>
+        <p>I will reply you soon.</p>
       </div>
     );
     button = null;

@@ -43,10 +43,8 @@ body {
   }
   &:hover {
     @include hover-shadow;
-    transform: scale(1.01);
   }
   &:active {
-    transform: scale(0.95);
     @include shadow;
   }
 
@@ -243,11 +241,20 @@ body {
   padding: $page-padding;
   background-color: $theme-color;
   color: $contrast-color;
+  .profilePicture {
+    display: none;
+  }
   & p {
     @include p;
   }
   @include large-screen {
-    @include back-image("../Assets/me.png", contain, 80% bottom);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .profilePicture {
+      display: block;
+      width: 20em;
+    }
     padding-bottom: 0;
     min-height: 25em;
     section {

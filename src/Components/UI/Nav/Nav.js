@@ -6,8 +6,8 @@ export default function Nav() {
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [shouldShowShadow, setShouldShowShadow] = useState(false);
 
-  const MINIMUM_SCROLL = 20;
-  const TIMEOUT_DELAY = 300;
+  const MINIMUM_SCROLL = 100;
+  const TIMEOUT_DELAY = 400;
 
   useScroll(callbackData => {
     const { previousScrollTop, currentScrollTop } = callbackData;

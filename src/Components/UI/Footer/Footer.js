@@ -8,6 +8,8 @@ import { ReactComponent as Instagram } from "../../../Assets/Instagram.svg";
 import { ReactComponent as GitHub } from "../../../Assets/GitHub.svg";
 export default function Footer() {
   const [, setY] = useSpring(() => ({ y: 0 }));
+  const currentYear = new Date().getFullYear();
+
   return (
     <Fragment>
       <button
@@ -62,7 +64,7 @@ export default function Footer() {
             <GitHub />
           </a>
         </li>
-        <p>IGOR IZVIEKOV 2020</p>
+        <p>IGOR IZVIEKOV 2020-{currentYear}</p>
       </footer>
     </Fragment>
   );

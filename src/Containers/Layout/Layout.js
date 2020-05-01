@@ -14,9 +14,9 @@ const Layout = () => {
         <Route path="/" exact component={Home} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/contact" component={Contact} />
+        <Route component={Contact} />
       </Switch>
       <Footer />
-      <Route render={() => <h1>Page not found</h1>} />
     </div>
   );
 };

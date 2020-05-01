@@ -16,6 +16,7 @@ const Layout = () => {
         <Route path="/contact" component={Contact} />
       </Switch>
       <Footer />
+      <Route render={() => <h1>Page not found</h1>} />
     </div>
   );
 };

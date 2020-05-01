@@ -134,7 +134,6 @@ const Form = () => {
     axios
       .post("http://localhost:8080/graphql", graphqlQuery)
       .then(response => {
-        console.log(response.data);
         if (response.data.errors) {
           return setError(true);
         }

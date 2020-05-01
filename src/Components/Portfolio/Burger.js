@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
+import { getAPI } from "../../helpers";
 import axios from "axios";
 import Spinner from "../UI/Spinner/Spinner";
 import ErrorMessage from "../UI/ErrorMessage";
@@ -34,7 +35,7 @@ export default function Burger() {
       `
     };
     axios
-      .post("http://localhost:8080/graphql", graphqlQuery)
+      .post(getAPI(), graphqlQuery)
       .then(response => {
         if (response.data.errors) {
           return setError(true);

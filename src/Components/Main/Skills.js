@@ -3,6 +3,7 @@ import axios from "axios";
 import pen from "../../Assets/Pen.svg";
 import codeIcon from "../../Assets/Code.svg";
 import Animation from "../UI/AnimationTracking";
+import { getAPI } from "../../helpers";
 export default function Skills() {
   const [design, setDesign] = useState([]);
   const [code, setCode] = useState([]);
@@ -26,7 +27,7 @@ export default function Skills() {
       `
     };
     axios
-      .post("http://localhost:8080/graphql", graphqlQuery)
+      .post(getAPI(), graphqlQuery)
       .then(response => {
         if (response.data.errors) {
           return setError(true);

@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "../UI/Button/Button";
 import { useHistory } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
+import { getAPI } from "../../helpers";
 import Animation from "../UI/AnimationTracking";
 const About = props => {
   const [image, setImage] = useState(null);
@@ -25,7 +26,7 @@ const About = props => {
       query: `{ imageURL }`
     };
     axios
-      .post("http://localhost:8080/graphql", graphqlQuery)
+      .post(getAPI(), graphqlQuery)
       .then(response => {
         if (response.data.errors) {
           return setError(true);

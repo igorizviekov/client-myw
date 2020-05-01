@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import { getAPI } from "../../helpers";
 import Spinner from "../UI/Spinner/Spinner";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
@@ -132,7 +133,7 @@ const Form = () => {
         }`
     };
     axios
-      .post("http://localhost:8080/graphql", graphqlQuery)
+      .post(getAPI(), graphqlQuery)
       .then(response => {
         if (response.data.errors) {
           return setError(true);

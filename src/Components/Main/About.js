@@ -5,8 +5,10 @@ import { useHistory } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import { getAPI } from "../../helpers";
 import Animation from "../UI/AnimationTracking";
+import Placeholder from "../UI/AnimationPlaceholder";
 const About = props => {
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const history = useHistory();
   const slide = useSpring({
@@ -22,6 +24,7 @@ const About = props => {
     history.push("/contact");
   };
   useEffect(() => {
+    setLoading(true);
     const graphqlQuery = {
       query: `{ imageURL }`
     };
@@ -29,14 +32,19 @@ const About = props => {
       .post(getAPI(), graphqlQuery)
       .then(response => {
         if (response.data.errors) {
+          setLoading(false);
           return setError(true);
         }
         const loadedData = response.data.data.imageURL;
         setImage(loadedData);
+        setLoading(false);
       })
-      .catch(() => setError(true));
+      .catch(() => {
+        setLoading(false);
+        return setError(true);
+      });
   }, []);
-  const profilePicture = (
+  let profilePicture = (
     <animated.img
       src={image}
       style={slide}
@@ -44,7 +52,9 @@ const About = props => {
       alt="profile picture"
     />
   );
-
+  if (loading) {
+    profilePicture = <Placeholder />;
+  }
   return (
     <div className="About">
       <section>

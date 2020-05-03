@@ -2,14 +2,17 @@ import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
 import pen from "../../Assets/Pen.svg";
 import codeIcon from "../../Assets/Code.svg";
+import { codePlaceholder, designPlaceholder } from "../../helpers";
 import Animation from "../UI/AnimationTracking";
 import { getAPI } from "../../helpers";
 export default function Skills() {
   const [design, setDesign] = useState([]);
   const [code, setCode] = useState([]);
-  const [error, setError] = useState(false);
+  const [, setError] = useState(false);
 
   useEffect(() => {
+    setCode(codePlaceholder);
+    setDesign(designPlaceholder);
     const graphqlQuery = {
       query: `
       {
@@ -37,16 +40,12 @@ export default function Skills() {
       })
       .catch(() => setError(true));
   }, []);
-  let codeSkills = code.map(skill => {
+  const codeSkills = code.map(skill => {
     return <p key={skill.id}>{skill.code}</p>;
   });
-  let designSkills = design.map(skill => {
+  const designSkills = design.map(skill => {
     return <p key={skill.id}>{skill.design}</p>;
   });
-  if (error) {
-    codeSkills = ["JavaScript", "React", "NodeJS", "Vue", "GraphQL", "mongoDB"];
-    designSkills = ["Illustrator", "Photoshop", "Final Cut", "XD"];
-  }
   return (
     <Fragment>
       <div className="Skills">

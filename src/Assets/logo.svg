@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.64 96">
   <g data-name="Layer 2">
-    <g fill="#231f20" data-name="Layer 1">
-      <path d="M0 52.36h43.64V96H0zM31.64 12v19.64H12V12h19.64m12-12H0v43.64h43.64V0z"/>
+    <g data-name="Layer 1">
+      <path class="logo" d="M0 52.36h43.64V96H0zM31.64 12v19.64H12V12h19.64m12-12H0v43.64h43.64V0z"/>
     </g>
   </g>
 </svg>

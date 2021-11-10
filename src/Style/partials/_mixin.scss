@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 @mixin links {
   text-decoration: none;
@@ -60,30 +60,55 @@ $dot-space: 10px;
   @include shadow;
 }
 
+//Logo svg
 @mixin card4 {
   z-index: 150;
   margin-top: -3em;
+  margin-left: 5.5em;
+  cursor: grab;
   width: 12.5em;
   height: 12.5em;
-  background-image: url("../Assets/logo.svg");
+  background-color: red;
+  -webkit-mask-image: url('../Assets/logo.svg');
+  mask-image: url('../Assets/logo.svg');
+  mask-repeat: no-repeat;
+  //pulse animation
+  animation: pulse 15s linear forwards infinite;
+  @keyframes pulse {
+    0% {
+      background-color: #480eb5;
+    }
+    74% {
+      background-color: #350a85;
+    }
+    75% {
+      background-color: tomato;
+    }
+    100% {
+      background-color: #480eb5;
+    }
+  }
 }
 
 @mixin card2 {
-  z-index: 50;
-  margin-top: 20em;
-  margin-left: -8em;
+  zoom: 2.7;
+  z-index: 1;
+  margin-top: 12.6em;
+  margin-left: -4em;
   width: 8em;
   height: 7em;
-  background-image: url("../Assets/Stroke.svg");
+  background-color: pink;
+  z-index: 1;
 }
 
 @mixin card3 {
-  margin-top: 20em;
-  margin-left: 7.8em;
+  zoom: 1.6;
+  margin-top: 18em;
+  margin-left: 17.8em;
   width: 8em;
   height: 7em;
-  z-index: 5;
-  background-image: url("../Assets/Stroke.svg");
+  z-index: 97;
+  background-image: url('../Assets/Stroke.svg');
 }
 
 @mixin keyframes($animation-name) {

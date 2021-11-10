@@ -1,12 +1,11 @@
-import React from "react";
-import Typing from "react-typing-animation";
-import "../../Style/Main.css";
-import Logo from "./Logo";
+import React from 'react';
+import Typing from 'react-typing-animation';
+import '../../Style/Main.css';
+import Logo from './Logo';
 
 export default function Main(props) {
   return (
     <div className="Main">
-      <div className="Background" />
       <div className="Title">
         <Typing hideCursor speed={100}>
           <h1>Hi!</h1>
@@ -15,9 +14,8 @@ export default function Main(props) {
           <h1>Igor.</h1>
         </Typing>
       </div>
+      {/* logo */}
       <Logo />
-      <br />
-      <br />
     </div>
   );
 }

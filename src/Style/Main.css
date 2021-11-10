@@ -311,29 +311,71 @@ body h2 {
 }
 
 .Main .card2 {
-  z-index: 50;
-  margin-top: 20em;
-  margin-left: -8em;
+  zoom: 2.7;
+  z-index: 1;
+  margin-top: 12.6em;
+  margin-left: -4em;
   width: 8em;
   height: 7em;
-  background-image: url("../Assets/Stroke.svg");
+  background-color: pink;
+  z-index: 1;
 }
 
 .Main .card3 {
-  margin-top: 20em;
-  margin-left: 7.8em;
+  zoom: 1.6;
+  margin-top: 18em;
+  margin-left: 17.8em;
   width: 8em;
   height: 7em;
-  z-index: 5;
+  z-index: 97;
   background-image: url("../Assets/Stroke.svg");
 }
 
 .Main .card4 {
   z-index: 150;
   margin-top: -3em;
+  margin-left: 5.5em;
+  cursor: -webkit-grab;
+  cursor: grab;
   width: 12.5em;
   height: 12.5em;
-  background-image: url("../Assets/logo.svg");
+  background-color: red;
+  -webkit-mask-image: url("../Assets/logo.svg");
+  mask-image: url("../Assets/logo.svg");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-animation: pulse 15s linear forwards infinite;
+          animation: pulse 15s linear forwards infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    background-color: #480eb5;
+  }
+  74% {
+    background-color: #350a85;
+  }
+  75% {
+    background-color: tomato;
+  }
+  100% {
+    background-color: #480eb5;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #480eb5;
+  }
+  74% {
+    background-color: #350a85;
+  }
+  75% {
+    background-color: tomato;
+  }
+  100% {
+    background-color: #480eb5;
+  }
 }
 
 @supports (-moz-appearance: none) {

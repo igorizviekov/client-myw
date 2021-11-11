@@ -1,9 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Typing from 'react-typing-animation';
 import '../../Style/Main.css';
 import Logo from './Logo';
 
 export default function Main(props) {
+  const history = useHistory();
+  const portfolioButton = () => {
+    history.push('/portfolio');
+  };
+
   return (
     <div className="Main">
       <div className="Title">
@@ -14,8 +20,15 @@ export default function Main(props) {
           <h1>Igor.</h1>
         </Typing>
       </div>
-      {/* logo */}
-      <Logo />
+      <div
+        className="logo"
+        onClick={portfolioButton}
+        onKeyDown={portfolioButton}
+        role="button"
+        tabIndex={0}
+      >
+        <Logo />
+      </div>
     </div>
   );
 }

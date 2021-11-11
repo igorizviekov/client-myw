@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Button from "../UI/Button/Button";
-import { useHistory } from "react-router-dom";
-import { useSpring, animated } from "react-spring";
-import { getAPI } from "../../helpers";
-import Animation from "../UI/AnimationTracking";
-import Placeholder from "../UI/AnimationPlaceholder";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Button from '../UI/Button/Button';
+import BackgroundAnimation from '../UI/Background/AboutMeBackground';
+import { useHistory } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
+import { getAPI } from '../../helpers';
+import Animation from '../UI/AnimationTracking';
+import Placeholder from '../UI/AnimationPlaceholder';
 const About = props => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ const About = props => {
     }
   });
   const contactButton = () => {
-    history.push("/contact");
+    history.push('/contact');
   };
   useEffect(() => {
     setLoading(true);
@@ -56,7 +57,7 @@ const About = props => {
     profilePicture = <Placeholder />;
   }
   return (
-    <div className="About">
+    <BackgroundAnimation>
       <section>
         <Animation>
           <h1>About me</h1>
@@ -71,12 +72,11 @@ const About = props => {
             In 2019, I tried how to code, and since then it has become a part of
             my daily routine.
           </p>
-          <br />
           <Button clicked={contactButton}>CONTACT</Button>
         </div>
       </section>
       {error ? null : profilePicture}
-    </div>
+    </BackgroundAnimation>
   );
 };
 export default About;

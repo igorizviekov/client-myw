@@ -1,5 +1,5 @@
-@import "partials/variables";
-@import "partials/mixin";
+@import 'partials/variables';
+@import 'partials/mixin';
 body {
   text-align: center;
   color: $text-color;
@@ -99,7 +99,7 @@ body {
     display: inline-block;
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       margin: -0.2em;
       width: 0;
@@ -171,7 +171,7 @@ body {
   height: 3em;
   background-color: $theme-color;
   @include animation(
-    "spinner 3s  cubic-bezier(0.75, 0, 0.5, 1) infinite normal"
+    'spinner 3s  cubic-bezier(0.75, 0, 0.5, 1) infinite normal'
   );
   @include keyframes(spinner) {
     50% {
@@ -187,14 +187,15 @@ body {
 
 //main page==============
 .Main {
-  padding: 5%;
-  height: 80vh;
-  @include large-screen {
-    height: 70vh;
-  }
+  overflow: hidden;
+  padding: 20px;
+
+  height: 85vh;
   .Title {
     text-align: left;
     margin-top: 20%;
+    z-index: 10;
+    position: relative;
   }
   .Background {
     @include background;
@@ -237,12 +238,77 @@ body {
 }
 
 //about me section
-.About {
-  padding: $page-padding;
+
+//about me background animation
+.container {
+  z-index: 1;
+  position: relative;
   background-color: $theme-color;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  &.container-bottom {
+    svg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  @include large-screen {
+    .container {
+      height: 60vh;
+    }
+  }
+}
+
+.parallax {
+  > use {
+    animation: move-forever 1s linear infinite;
+    //back
+    &:nth-child(1) {
+      animation-delay: -8s;
+      animation-duration: 8s;
+    }
+    &:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 8s;
+    }
+    &:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 8s;
+    }
+    &:nth-child(4) {
+      animation-delay: 1s;
+      animation-duration: 8s;
+    }
+  }
+  @keyframes move-forever {
+    0% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translateY(5px);
+    }
+  }
+}
+
+#layer {
+  filter: drop-shadow(0 0 0.2mm #1e064b);
+}
+//about me background animation ends
+
+.About {
+  z-index: 33;
+  padding: $page-padding;
   color: $contrast-color;
   .profilePicture {
     display: none;
+  }
+  section {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
   }
   & p {
     @include p;
@@ -265,7 +331,7 @@ body {
 //skills section
 .Skills {
   background-color: $third-color;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
   padding: $page-padding;
 
   & img {
@@ -276,13 +342,20 @@ body {
   & .Grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    max-width: 800px;
+    margin: auto;
+    p {
+      margin-top: 0;
+    }
   }
 }
 
 .Skills2 {
   .SkillsInfo {
     padding: $page-padding;
-    margin-bottom: 5%;
+    max-width: 70%;
+    margin: auto;
+    margin-bottom: 100px;
     h2 {
       color: $theme-color;
     }
@@ -292,10 +365,9 @@ body {
     @include large-screen {
       display: flex;
       justify-content: space-between;
-      padding: 0 5em;
-      @include back-image("../Assets/Working.svg", 20em, center);
+      @include back-image('../Assets/Working.svg', 20em, center);
       & section {
-        width: 13em;
+        width: 20em;
       }
       & h2 {
         width: 5em;
@@ -324,7 +396,7 @@ body {
   }
   @include large-screen {
     margin-bottom: 5%;
-    @include back-image("../Assets/Message.svg", contain, center);
+    @include back-image('../Assets/Message.svg', contain, center);
     & a {
       font-size: $screen-h2;
       padding: 1%;

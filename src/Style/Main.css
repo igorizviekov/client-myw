@@ -18,7 +18,7 @@ body h2 {
   font-weight: normal;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   body p {
     font-size: large;
   }
@@ -40,7 +40,7 @@ body h2 {
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Button {
     padding: 0.4em;
   }
@@ -74,7 +74,7 @@ body h2 {
   height: 70px;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Touch {
     padding-top: 10%;
   }
@@ -112,7 +112,7 @@ body h2 {
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Nav {
     padding-top: 2%;
     padding-bottom: 2%;
@@ -127,7 +127,7 @@ body h2 {
 }
 
 .Nav a:after {
-  content: "";
+  content: '';
   display: block;
   margin: -0.2em;
   width: 0;
@@ -168,7 +168,7 @@ body h2 {
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.289);
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Scroll {
     zoom: 1.3;
   }
@@ -242,19 +242,16 @@ body h2 {
 }
 
 .Main {
-  padding: 5%;
-  height: 80vh;
-}
-
-@media (min-width: 40em) {
-  .Main {
-    height: 70vh;
-  }
+  overflow: hidden;
+  padding: 20px;
+  height: 85vh;
 }
 
 .Main .Title {
   text-align: left;
   margin-top: 20%;
+  z-index: 10;
+  position: relative;
 }
 
 .Main .Background {
@@ -290,7 +287,7 @@ body h2 {
   will-change: transform;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Main .card1,
   .Main .card2,
   .Main .card3,
@@ -301,7 +298,7 @@ body h2 {
 }
 
 .Main .card1 {
-  z-index: 50;
+  z-index: 2;
   width: 12.5em;
   height: 12.5em;
   background: linear-gradient(90deg, #f7f7f7 8px, transparent 1%) center, linear-gradient(#f7f7f7 8px, transparent 1%) center, #babbbf;
@@ -313,33 +310,45 @@ body h2 {
 .Main .card2 {
   zoom: 2.7;
   z-index: 1;
-  margin-top: 12.6em;
+  margin-top: 12em;
   margin-left: -4em;
-  width: 8em;
-  height: 7em;
-  background-color: pink;
+  width: 5em;
+  height: 5em;
   z-index: 1;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
+
+@media (min-width: 992px) {
+  .Main .card2 {
+    margin-top: 12.6em;
+    width: 8em;
+    height: 7em;
+  }
 }
 
 .Main .card3 {
-  zoom: 1.6;
   margin-top: 18em;
   margin-left: 17.8em;
   width: 8em;
   height: 7em;
-  z-index: 97;
+  z-index: 2;
   background-image: url("../Assets/Stroke.svg");
 }
 
+@media (min-width: 992px) {
+  .Main .card3 {
+    zoom: 1.6;
+  }
+}
+
 .Main .card4 {
-  z-index: 150;
+  z-index: 5;
   margin-top: -3em;
   margin-left: 5.5em;
-  cursor: -webkit-grab;
-  cursor: grab;
+  cursor: pointer;
   width: 12.5em;
   height: 12.5em;
-  background-color: red;
+  background-color: #480eb5;
   -webkit-mask-image: url("../Assets/logo.svg");
   mask-image: url("../Assets/logo.svg");
   -webkit-mask-repeat: no-repeat;
@@ -353,10 +362,13 @@ body h2 {
     background-color: #480eb5;
   }
   74% {
-    background-color: #350a85;
+    background-color: #480eb5;
   }
   75% {
-    background-color: tomato;
+    background-color: #d63230;
+  }
+  80% {
+    background-color: #480eb5;
   }
   100% {
     background-color: #480eb5;
@@ -368,10 +380,13 @@ body h2 {
     background-color: #480eb5;
   }
   74% {
-    background-color: #350a85;
+    background-color: #480eb5;
   }
   75% {
-    background-color: tomato;
+    background-color: #d63230;
+  }
+  80% {
+    background-color: #480eb5;
   }
   100% {
     background-color: #480eb5;
@@ -391,9 +406,95 @@ body h2 {
   }
 }
 
-.About {
-  padding: 5%;
+.container {
+  z-index: 1;
+  position: relative;
   background-color: #480eb5;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container.container-bottom svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .container .container {
+    height: 60vh;
+  }
+}
+
+.parallax > use {
+  -webkit-animation: move-forever 1s linear infinite;
+          animation: move-forever 1s linear infinite;
+}
+
+.parallax > use:nth-child(1) {
+  -webkit-animation-delay: -8s;
+          animation-delay: -8s;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+
+.parallax > use:nth-child(2) {
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+
+.parallax > use:nth-child(3) {
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+
+.parallax > use:nth-child(4) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+
+@-webkit-keyframes move-forever {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
+@keyframes move-forever {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
+#layer {
+  -webkit-filter: drop-shadow(0 0 0.2mm #1e064b);
+          filter: drop-shadow(0 0 0.2mm #1e064b);
+}
+
+.About {
+  z-index: 33;
+  padding: 20px;
   color: white;
 }
 
@@ -401,12 +502,19 @@ body h2 {
   display: none;
 }
 
+.About section {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
 .About p {
   text-indent: 1em;
   text-align: left;
+  margin-top: 0;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .About {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -430,8 +538,8 @@ body h2 {
 
 .Skills {
   background-color: #f7f7f7;
-  margin-bottom: 5%;
-  padding: 5%;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .Skills img {
@@ -448,11 +556,19 @@ body h2 {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
+  max-width: 800px;
+  margin: auto;
+}
+
+.Skills .Grid p {
+  margin-top: 0;
 }
 
 .Skills2 .SkillsInfo {
-  padding: 5%;
-  margin-bottom: 5%;
+  padding: 20px;
+  max-width: 70%;
+  margin: auto;
+  margin-bottom: 100px;
 }
 
 .Skills2 .SkillsInfo h2 {
@@ -462,9 +578,10 @@ body h2 {
 .Skills2 .SkillsInfo p {
   text-indent: 1em;
   text-align: left;
+  margin-top: 0;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Skills2 .SkillsInfo {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -472,14 +589,13 @@ body h2 {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 5em;
     background-image: url("../Assets/Working.svg");
     background-size: 20em;
     background-repeat: no-repeat;
     background-position: center;
   }
   .Skills2 .SkillsInfo section {
-    width: 13em;
+    width: 20em;
   }
   .Skills2 .SkillsInfo h2 {
     width: 5em;
@@ -513,7 +629,7 @@ body h2 {
   color: #480eb5;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Contact {
     margin-bottom: 5%;
     background-image: url("../Assets/Message.svg");
@@ -534,7 +650,7 @@ body h2 {
   min-height: 50vh;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Form {
     padding-bottom: 2%;
   }
@@ -551,7 +667,7 @@ body h2 {
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Input {
     width: 60%;
   }
@@ -571,7 +687,7 @@ body h2 {
   transition: 200ms;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .InputElement {
     padding-top: 3%;
   }
@@ -639,7 +755,7 @@ body h2 {
   margin-bottom: 5%;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .InputElement.TextArea {
     height: 14em;
   }
@@ -661,9 +777,10 @@ body h2 {
 
 .Portfolio .Card p,
 .Portfolio .Card h2 {
-  padding: 0 5%;
+  padding: 0 20px;
   text-indent: 1em;
   text-align: left;
+  margin-top: 0;
 }
 
 .Portfolio .Card a {
@@ -676,7 +793,7 @@ body h2 {
   width: 70%;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 992px) {
   .Portfolio .Card {
     display: -webkit-box;
     display: -ms-flexbox;

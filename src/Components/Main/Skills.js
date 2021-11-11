@@ -1,16 +1,17 @@
-import React, { useEffect, useState, Fragment } from "react";
-import axios from "axios";
-import pen from "../../Assets/Pen.svg";
-import codeIcon from "../../Assets/Code.svg";
-import { codePlaceholder, designPlaceholder } from "../../helpers";
-import Animation from "../UI/AnimationTracking";
-import { getAPI } from "../../helpers";
+import React, { useEffect, useState, Fragment } from 'react';
+import axios from 'axios';
+import pen from '../../Assets/Pen.svg';
+import codeIcon from '../../Assets/Code.svg';
+import { codePlaceholder, designPlaceholder } from '../../helpers';
+import Animation from '../UI/AnimationTracking';
+import { getAPI } from '../../helpers';
 export default function Skills() {
   const [design, setDesign] = useState([]);
   const [code, setCode] = useState([]);
   const [, setError] = useState(false);
 
   useEffect(() => {
+    //skills placeholder
     setCode(codePlaceholder);
     setDesign(designPlaceholder);
     const graphqlQuery = {
@@ -54,8 +55,7 @@ export default function Skills() {
         </Animation>
         <br />
         <img src={pen} alt="Pen" />
-        <br />
-        {designSkills}
+        <div className="Grid">{designSkills}</div>
         <img src={codeIcon} alt="Code" />
         <div className="Grid">{codeSkills}</div>
       </div>
@@ -63,23 +63,25 @@ export default function Skills() {
         <Animation>
           <h1>What do I do?</h1>
         </Animation>
-        <br />
         <div className="SkillsInfo">
           <section>
             <h2>Web Design</h2>
             <p>
-              Minimalist and clean, where every stroke exists for a purpose. All
-              about your website, including the content, the way it looks, and
-              the way it works - I’ve got you covered.
+              A responsive and clean website that meets all the latest trends
+              may achieve the goal of shaping a strong brand, and still, it is
+              not enough.
+            </p>
+            <p>
+              I am passionate about creating a design that sells the product.
             </p>
           </section>
           <section>
             <h2>Web Development</h2>
             <p>
-              I will implement the design so the website runs smoothly in
-              different browsers, different operating systems and different
-              devices, from widescreen monitors to mobile phones.
+              In a highly competitive market such as a digital one you need to
+              stand out.
             </p>
+            <p>I like to solve problems. Do you have crazy ideas?</p>
           </section>
         </div>
       </div>

@@ -44,8 +44,9 @@ $dot-color: $second-color;
 // Dimensions
 $dot-size: 2px;
 $dot-space: 10px;
+//dot square
 @mixin card1 {
-  z-index: 50;
+  z-index: 2;
   width: 12.5em;
   height: 12.5em;
   background: linear-gradient(
@@ -62,13 +63,13 @@ $dot-space: 10px;
 
 //Logo svg
 @mixin card4 {
-  z-index: 150;
+  z-index: 5;
   margin-top: -3em;
   margin-left: 5.5em;
-  cursor: grab;
+  cursor: pointer;
   width: 12.5em;
   height: 12.5em;
-  background-color: red;
+  background-color: $theme-color;
   -webkit-mask-image: url('../Assets/logo.svg');
   mask-image: url('../Assets/logo.svg');
   mask-repeat: no-repeat;
@@ -76,39 +77,51 @@ $dot-space: 10px;
   animation: pulse 15s linear forwards infinite;
   @keyframes pulse {
     0% {
-      background-color: #480eb5;
+      background-color: $theme-color;
     }
     74% {
-      background-color: #350a85;
+      background-color: $theme-color;
     }
     75% {
-      background-color: tomato;
+      background-color: $vibrant-color;
+    }
+    80% {
+      background-color: $theme-color;
     }
     100% {
-      background-color: #480eb5;
+      background-color: $theme-color;
     }
   }
 }
 
+//back
 @mixin card2 {
   zoom: 2.7;
   z-index: 1;
-  margin-top: 12.6em;
+  margin-top: 12em;
   margin-left: -4em;
-  width: 8em;
-  height: 7em;
-  background-color: pink;
+  width: 5em;
+  height: 5em;
   z-index: 1;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  @include large-screen {
+    margin-top: 12.6em;
+    width: 8em;
+    height: 7em;
+  }
 }
 
+//stroke
 @mixin card3 {
-  zoom: 1.6;
   margin-top: 18em;
   margin-left: 17.8em;
   width: 8em;
   height: 7em;
-  z-index: 97;
+  z-index: 2;
   background-image: url('../Assets/Stroke.svg');
+  @include large-screen {
+    zoom: 1.6;
+  }
 }
 
 @mixin keyframes($animation-name) {
@@ -140,10 +153,11 @@ $dot-space: 10px;
 @mixin p {
   text-indent: $indent;
   text-align: left;
+  margin-top: 0;
 }
 
 @mixin large-screen() {
-  @media (min-width: 40em) {
+  @media (min-width: 992px) {
     @content;
   }
 }

@@ -78,10 +78,11 @@ export default function Skills() {
           <section>
             <h2>Web Development</h2>
             <p>
-              In a highly competitive market such as a digital one you need to
+              In a highly competitive market such as a digital one, you need to
               stand out.
             </p>
-            <p>I like to solve problems. Do you have crazy ideas?</p>
+            <p style={{ margin: 0 }}>I like to solve problems.</p>
+            <p>Do you have crazy ideas?</p>
           </section>
         </div>
       </div>

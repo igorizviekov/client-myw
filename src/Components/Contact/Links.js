@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
-import Animation from "../UI/AnimationTracking";
+import React, { Fragment } from 'react';
+import Animation from '../UI/AnimationTracking';
 export default function Links() {
   return (
     <Fragment>
       <div className="Touch">
         <Animation>
-          <h1>Drop me a line </h1>
+          <h1>Follow me on social</h1>
         </Animation>
       </div>
 

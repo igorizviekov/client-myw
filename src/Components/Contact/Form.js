@@ -1,10 +1,10 @@
-import React, { useState, Fragment } from "react";
-import { getAPI } from "../../helpers";
-import Spinner from "../UI/Spinner/Spinner";
-import Button from "../UI/Button/Button";
-import Input from "../UI/Input/Input";
-import ErrorMessage from "../UI/ErrorMessage";
-import axios from "axios";
+import React, { useState, Fragment } from 'react';
+import { getAPI } from '../../helpers';
+import Spinner from '../UI/Spinner/Spinner';
+import Button from '../UI/Button/Button';
+import Input from '../UI/Input/Input';
+import ErrorMessage from '../UI/ErrorMessage';
+import axios from 'axios';
 
 const Form = () => {
   const [loading, setLoading] = useState(false);
@@ -13,12 +13,12 @@ const Form = () => {
   const [formIsValid, setFormIsValid] = useState(false);
   const [form, setForm] = useState({
     name: {
-      elementType: "input",
+      elementType: 'input',
       elementConfig: {
-        type: "text",
-        placeholder: "First Name"
+        type: 'text',
+        placeholder: 'First Name'
       },
-      value: "",
+      value: '',
       validation: {
         required: true,
         minLength: 3
@@ -27,12 +27,12 @@ const Form = () => {
       touched: false
     },
     lastName: {
-      elementType: "input",
+      elementType: 'input',
       elementConfig: {
-        type: "text",
-        placeholder: "Last Name"
+        type: 'text',
+        placeholder: 'Last Name'
       },
-      value: "",
+      value: '',
       validation: {
         required: true,
         minLength: 3
@@ -41,12 +41,12 @@ const Form = () => {
       touched: false
     },
     email: {
-      elementType: "input",
+      elementType: 'input',
       elementConfig: {
-        type: "email",
-        placeholder: "E-Mail"
+        type: 'email',
+        placeholder: 'E-mail'
       },
-      value: "",
+      value: '',
       validation: {
         required: true,
         isEmail: true
@@ -55,12 +55,12 @@ const Form = () => {
       touched: false
     },
     message: {
-      elementType: "textarea",
+      elementType: 'textarea',
       elementConfig: {
-        type: "text",
-        placeholder: "How can I help You?"
+        type: 'text',
+        placeholder: 'How can I help You?'
       },
-      value: "",
+      value: '',
       validation: {
         required: true,
         minLength: 4
@@ -77,7 +77,7 @@ const Form = () => {
     }
 
     if (rules.required) {
-      isValid = value.trim() !== "" && isValid;
+      isValid = value.trim() !== '' && isValid;
     }
 
     if (rules.minLength) {
@@ -187,8 +187,7 @@ const Form = () => {
   }
   return (
     <Fragment>
-      <h1>Fill the form</h1>
-      <h2>It`s easy</h2>
+      <h1>Drop me a line</h1>
       <form className="Form">
         {userForm}
         <br />

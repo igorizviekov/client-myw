@@ -18,8 +18,8 @@ export default function BackgroundAnimation(props) {
         <g className="parallax">
           <use xlinkHref="#layer" x="-40" y="-20" fill="#3D0B98" />
           <use xlinkHref="#layer" x="0" y="-10" fill="#350B84" />
-          <use xlinkHref="#layer" x="-70" y="-4" fill="#651BEE" />
-          <use xlinkHref="#layer" x="-50" y="7" fill="#661EEB" />
+          <use xlinkHref="#layer" x="-70" y="-4" fill="#440DAB" />
+          <use xlinkHref="#layer" x="-50" y="7" fill="#4B0DBF" />
         </g>
       </svg>
     </div>

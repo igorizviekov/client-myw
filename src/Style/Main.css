@@ -28,22 +28,14 @@ body h2 {
   cursor: pointer;
   font-family: "Rokkitt", serif;
   background-color: #f7f7f7;
-  font-size: 20pt;
-  font-weight: bold;
+  font-size: 14pt;
   border: none;
   outline: none;
-  padding: 3%;
-  margin-bottom: 7%;
+  padding: 5px;
   -webkit-transition: 400ms;
   transition: 400ms;
   -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
-}
-
-@media (min-width: 992px) {
-  .Button {
-    padding: 0.4em;
-  }
 }
 
 .Button:hover {
@@ -63,6 +55,12 @@ body h2 {
           transform: none;
   -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.289);
+}
+
+@media (min-width: 992px) {
+  .Button {
+    font-size: 20pt;
+  }
 }
 
 .Touch {
@@ -548,7 +546,8 @@ body h2 {
       -ms-user-select: none;
           user-select: none;
   pointer-events: none;
-  width: 3em;
+  width: 40px;
+  margin-bottom: 10px;
 }
 
 .Skills .Grid {
@@ -573,6 +572,7 @@ body h2 {
 
 .Skills2 .SkillsInfo h2 {
   color: #480eb5;
+  margin: auto;
 }
 
 .Skills2 .SkillsInfo p {
@@ -645,19 +645,19 @@ body h2 {
 
 .Form {
   background-color: #f7f7f7;
-  padding-top: 5%;
-  padding-bottom: 10%;
-  min-height: 50vh;
+  padding-top: 70px;
+  padding-bottom: 100px;
 }
 
 @media (min-width: 992px) {
   .Form {
-    padding-bottom: 2%;
+    min-height: 400px;
   }
 }
 
 .Input {
   width: 80%;
+  max-width: 800px;
   background-color: white;
   margin: auto;
   padding: 1% 5%;
@@ -678,7 +678,6 @@ body h2 {
   border: none;
   border-bottom: 5px solid #f7f7f7;
   font: inherit;
-  padding-top: 6%;
   display: block;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -751,13 +750,15 @@ body h2 {
 
 .InputElement.TextArea {
   background-color: #f7f7f7;
-  height: 10em;
-  margin-bottom: 5%;
+  margin: 0;
+  resize: none;
+  height: 100px;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 992px) {
   .InputElement.TextArea {
-    height: 14em;
+    height: 200px;
   }
 }
 

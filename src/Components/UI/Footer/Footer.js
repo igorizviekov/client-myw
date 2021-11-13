@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
-import { ReactComponent as Arrow } from "../../../Assets/Arrow.svg";
-import { ReactComponent as Dribble } from "../../../Assets/Dribbble.svg";
-import { ReactComponent as Facebook } from "../../../Assets/Facebook.svg";
-import { ReactComponent as LinkedIn } from "../../../Assets/LinkedIn.svg";
-import { ReactComponent as Instagram } from "../../../Assets/Instagram.svg";
-import { ReactComponent as GitHub } from "../../../Assets/GitHub.svg";
+import React, { Fragment } from 'react';
+import { ReactComponent as Arrow } from '../../../Assets/Arrow.svg';
+import { ReactComponent as Dribble } from '../../../Assets/Dribbble.svg';
+import { ReactComponent as Facebook } from '../../../Assets/Facebook.svg';
+import { ReactComponent as LinkedIn } from '../../../Assets/LinkedIn.svg';
+import { ReactComponent as Instagram } from '../../../Assets/Instagram.svg';
+import { ReactComponent as GitHub } from '../../../Assets/GitHub.svg';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   return (
     <Fragment>
@@ -54,7 +54,7 @@ export default function Footer() {
             <GitHub />
           </a>
         </li>
-        <p>IGOR IZVIEKOV 2020-{currentYear}</p>
+        <p>IGOR IZVIEKOV 2019-{currentYear}</p>
       </footer>
     </Fragment>
   );

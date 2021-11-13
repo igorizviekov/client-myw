@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <Fragment>
       <Main />
-      <div>dev mode</div>
       <About />
       <Skills />
     </Fragment>

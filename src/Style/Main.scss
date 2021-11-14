@@ -474,10 +474,12 @@ body {
   background-color: $third-color;
   height: auto;
   min-height: 90vh;
+  padding-bottom: 100px;
   & .Card {
     background-color: white;
     margin: 2em;
     padding-top: 2em;
+
     @include shadow;
     & p,
     h2 {
@@ -502,6 +504,7 @@ body {
       width: 50%;
       margin: auto;
       margin-bottom: 20px;
+
       padding: 10px 20px;
       min-height: 60vh;
       & section {

@@ -591,7 +591,7 @@ body h2 {
 
 .Skills2 .SkillsInfo {
   padding: 20px;
-  max-width: 70%;
+  max-width: 75%;
   margin: auto;
   margin-bottom: 100px;
 }
@@ -818,6 +818,7 @@ body h2 {
 
 .Portfolio .Card h2 {
   text-align: center;
+  font-size: 32px;
 }
 
 .Portfolio .Card a {

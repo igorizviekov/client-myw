@@ -255,6 +255,10 @@ body {
       left: 0;
       right: 0;
       bottom: 0;
+      transform: scale(3);
+      @include large-screen {
+        transform: scale(1);
+      }
     }
   }
   @include large-screen {

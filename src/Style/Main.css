@@ -439,6 +439,15 @@ body h2 {
   left: 0;
   right: 0;
   bottom: 0;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+
+@media (min-width: 992px) {
+  .container.container-bottom svg {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 @media (min-width: 992px) {

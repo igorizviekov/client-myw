@@ -189,7 +189,10 @@ body {
   overflow: hidden;
   padding: 20px;
 
-  height: 85vh;
+  height: 70vh;
+  @include large-screen {
+    height: 85vh;
+  }
   .Title {
     text-align: left;
     margin-top: 20%;
@@ -474,7 +477,9 @@ body {
   background-color: $third-color;
   height: auto;
   min-height: 90vh;
-  padding-bottom: 100px;
+  @include large-screen {
+    padding-bottom: 100px;
+  }
   & .Card {
     background-color: white;
     margin: 2em;
@@ -485,6 +490,9 @@ body {
     h2 {
       padding: 0 $page-padding;
       @include p;
+    }
+    & h2 {
+      text-align: center;
     }
     & a {
       margin-left: 0.4em;

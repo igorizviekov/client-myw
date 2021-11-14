@@ -46,6 +46,7 @@ $dot-size: 2px;
 $dot-space: 10px;
 //dot square
 @mixin card1 {
+  display: none;
   z-index: 2;
   width: 12.5em;
   height: 12.5em;
@@ -59,6 +60,9 @@ $dot-space: 10px;
     $dot-color;
   background-size: $dot-space $dot-space;
   @include shadow;
+  @include large-screen {
+    display: block;
+  }
 }
 
 //Logo svg
@@ -96,6 +100,7 @@ $dot-space: 10px;
 
 //back
 @mixin card2 {
+  display: none;
   zoom: 2.7;
   z-index: 1;
   margin-top: 12em;
@@ -105,6 +110,7 @@ $dot-space: 10px;
   z-index: 1;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   @include large-screen {
+    display: block;
     margin-top: 12.6em;
     width: 8em;
     height: 7em;
@@ -113,6 +119,7 @@ $dot-space: 10px;
 
 //stroke
 @mixin card3 {
+  display: none;
   margin-top: 18em;
   margin-left: 17.8em;
   width: 8em;
@@ -120,6 +127,7 @@ $dot-space: 10px;
   z-index: 2;
   background-image: url('../Assets/Stroke.svg');
   @include large-screen {
+    display: block;
     zoom: 1.6;
   }
 }

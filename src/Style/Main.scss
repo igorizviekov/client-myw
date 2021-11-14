@@ -492,15 +492,17 @@ body {
       height: auto;
       width: 70%;
     }
-
+    .description {
+      text-align: left;
+    }
     @include large-screen {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 60%;
+      width: 50%;
       margin: auto;
-      margin-bottom: 5%;
-      padding: 1% 5%;
+      margin-bottom: 20px;
+      padding: 10px 20px;
       min-height: 60vh;
       & section {
         width: 40%;
@@ -512,7 +514,7 @@ body {
         width: 50%;
       }
       img {
-        width: 80%;
+        width: 100%;
       }
     }
   }

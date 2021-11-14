@@ -28,7 +28,7 @@ const About = props => {
           </p>
           <p>
             Although, writing code itself is not enough to be a good developer.
-            So I am lucky to do what I love, learn, and become better every day.
+            So I am lucky to do what I love and achieve more every day.
           </p>
           <Button clicked={contactButton}>CONTACT</Button>
         </div>

@@ -794,6 +794,10 @@ body h2 {
   width: 70%;
 }
 
+.Portfolio .Card .description {
+  text-align: left;
+}
+
 @media (min-width: 992px) {
   .Portfolio .Card {
     display: -webkit-box;
@@ -805,10 +809,10 @@ body h2 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 60%;
+    width: 50%;
     margin: auto;
-    margin-bottom: 5%;
-    padding: 1% 5%;
+    margin-bottom: 20px;
+    padding: 10px 20px;
     min-height: 60vh;
   }
   .Portfolio .Card section {
@@ -827,7 +831,7 @@ body h2 {
     width: 50%;
   }
   .Portfolio .Card img {
-    width: 80%;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=Main.css.map */
